@@ -18,5 +18,6 @@
 
 ## 🖼️软件截图
 <img width="1711" height="1042" alt="cec0ef018a83144443e49b397e2b669d" src="https://github.com/user-attachments/assets/7410e8f6-7836-4424-8bc8-7e86996d4ee6" />
-<img width="1716" height="1053" alt="a8c589d6b823bce8abed8c82f580bc63" src="https://github.com/user-attachments/assets/8f9e17c1-0153-4c01-a16f-dbd88321d97c" />
+<img width="1668" height="1045" alt="fcb5e58bc58e7990a148e53506330c62" src="https://github.com/user-attachments/assets/c8afb661-9832-4e42-82ca-72e79d664327" />
+<img width="851" height="754" alt="fe843fecdccf715115c3a0891c56bac6" src="https://github.com/user-attachments/assets/72f5e7bf-a7a9-4aac-b690-5a04c3f1ff5d" />
 
