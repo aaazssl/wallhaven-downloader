@@ -1,5 +1,4 @@
 # Wallhaven 下载器
-纯靠deepseek辅助编程（我俩真是太厉害了）
 一款Wallhaven 壁纸批量下载工具
 
 ## ✨ 功能特性
@@ -16,6 +15,7 @@
 
 ## 🔧 开发环境：
 不知道
+
 ## 🖼️软件截图
 <img width="1711" height="1042" alt="cec0ef018a83144443e49b397e2b669d" src="https://github.com/user-attachments/assets/7410e8f6-7836-4424-8bc8-7e86996d4ee6" />
 <img width="1716" height="1053" alt="a8c589d6b823bce8abed8c82f580bc63" src="https://github.com/user-attachments/assets/8f9e17c1-0153-4c01-a16f-dbd88321d97c" />
