@@ -19,5 +19,6 @@
 ## 🖼️软件截图
 <img width="1711" height="1042" alt="cec0ef018a83144443e49b397e2b669d" src="https://github.com/user-attachments/assets/7410e8f6-7836-4424-8bc8-7e86996d4ee6" />
 <img width="1668" height="1045" alt="fcb5e58bc58e7990a148e53506330c62" src="https://github.com/user-attachments/assets/c8afb661-9832-4e42-82ca-72e79d664327" />
-<img width="851" height="754" alt="fe843fecdccf715115c3a0891c56bac6" src="https://github.com/user-attachments/assets/72f5e7bf-a7a9-4aac-b690-5a04c3f1ff5d" />
+<img width="1181" height="787" alt="b51936ecefad99fa3cde32acc93d6171" src="https://github.com/user-attachments/assets/33bea9c9-8587-4ca8-af6e-f173a889374f" />
+
 
