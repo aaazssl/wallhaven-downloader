@@ -1,0 +1,25 @@
+# ===== 依赖 =====
+node_modules/
+
+# ===== 构建产物 =====
+dist/
+out/
+
+# ===== 打包产物（体积巨大，切勿入库！曾导致 .git 膨胀到 437MB）=====
+release/
+
+# ===== 环境变量 =====
+.env
+.env.local
+
+# ===== 日志 =====
+*.log
+npm-debug.log*
+
+# ===== 临时脚本（_tmp_xxx.cjs 之类）=====
+_tmp_*
+
+# ===== 系统 / 编辑器 =====
+Thumbs.db
+Desktop.ini
+.DS_Store

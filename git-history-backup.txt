@@ -1,0 +1,165 @@
+# 原 git 提交历史备份
+# 生成原因：仓库历史中混入了 release/ 大文件（安装包 + win-unpacked），.git 达 437 MB，
+#           为恢复正常体积而重建仓库（见 项目交接文档.md 第十节技术债）。
+# 原分支：main
+# 原 remote：
+#   origin	https://github.com/1474846859/wallhaven-downloader.git (fetch)
+#   origin	https://github.com/1474846859/wallhaven-downloader.git (push)
+# 导出时间：2026/9/14 14:18:23
+# 说明：重建后这些 commit 不再可 checkout，仅保留以下文字记录。
+
+## 提交列表（新 → 旧）
+
+fd85437  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=152
+04f2309  2026-09-14  1474846859  untracked files on cline checkpoint
+257bc38  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+445d70b  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=151
+0db140f  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+42dd6b2  2026-09-14  1474846859  untracked files on cline checkpoint
+b902b76  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=150
+d1d50bd  2026-09-14  1474846859  untracked files on cline checkpoint
+f48f23e  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+c79acf8  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=149
+c22db20  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+42e1323  2026-09-14  1474846859  untracked files on cline checkpoint
+e14cc20  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=148
+070fd70  2026-09-14  1474846859  untracked files on cline checkpoint
+c21ea10  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+a99bb32  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=147
+91e5e46  2026-09-14  1474846859  untracked files on cline checkpoint
+a6f72f0  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+6df7743  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=146
+c4b727a  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+4769886  2026-09-14  1474846859  untracked files on cline checkpoint
+24bfe92  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=145
+6a09d39  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+68f9ced  2026-09-14  1474846859  untracked files on cline checkpoint
+319d2a9  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=144
+2bd194e  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+9a6b31b  2026-09-14  1474846859  untracked files on cline checkpoint
+d4f968e  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=143
+d05d940  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+118fabb  2026-09-14  1474846859  untracked files on cline checkpoint
+735bbbd  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=142
+8037bb9  2026-09-14  1474846859  untracked files on cline checkpoint
+02cfb1a  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+31bc64c  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=141
+fc12d15  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+27556b8  2026-09-14  1474846859  untracked files on cline checkpoint
+60091a4  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=140
+9566081  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+2bda8ee  2026-09-14  1474846859  untracked files on cline checkpoint
+f8a45a0  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=139
+7ce563e  2026-09-14  1474846859  untracked files on cline checkpoint
+b133213  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+047cffa  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=138
+785c65a  2026-09-14  1474846859  untracked files on cline checkpoint
+596a8a8  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+ef57b3f  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=137
+c902719  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+fd9aa73  2026-09-14  1474846859  untracked files on cline checkpoint
+243b5ed  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=136
+3f41462  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+da8592e  2026-09-14  1474846859  untracked files on cline checkpoint
+3a8f012  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=135
+929b085  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+163d1b8  2026-09-14  1474846859  untracked files on cline checkpoint
+d1890e6  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=134
+ad1dd85  2026-09-14  1474846859  untracked files on cline checkpoint
+f8f893c  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+7cb6a0d  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=133
+845d960  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+a68a100  2026-09-14  1474846859  untracked files on cline checkpoint
+9a2c51a  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=132
+8ef2866  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+2ce6b0c  2026-09-14  1474846859  untracked files on cline checkpoint
+6ae6edb  2026-09-14  1474846859  cline checkpoint session=1789131352945 run=131
+231c942  2026-09-14  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+7f79987  2026-09-14  1474846859  untracked files on cline checkpoint
+8374c2d  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=130
+1e92012  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+239fad7  2026-09-13  1474846859  untracked files on cline checkpoint
+b0db665  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=129
+fdb3831  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+8bfd6bf  2026-09-13  1474846859  untracked files on cline checkpoint
+07b1cd5  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=128
+a4a475f  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+cd15283  2026-09-13  1474846859  untracked files on cline checkpoint
+c415330  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=127
+c744665  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+ee79c83  2026-09-13  1474846859  untracked files on cline checkpoint
+3bb76df  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=126
+481d749  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+8ece89b  2026-09-13  1474846859  untracked files on cline checkpoint
+307b138  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=125
+62f2ad0  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+187ade0  2026-09-13  1474846859  untracked files on cline checkpoint
+cfbe44c  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=124
+0c2c4f9  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+9a97364  2026-09-13  1474846859  untracked files on cline checkpoint
+4d83938  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=123
+1c3d127  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+e929b1c  2026-09-13  1474846859  untracked files on cline checkpoint
+8050aff  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=122
+2864318  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+341a901  2026-09-13  1474846859  untracked files on cline checkpoint
+d11f04b  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=121
+3470c44  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+fdfda56  2026-09-13  1474846859  untracked files on cline checkpoint
+18588ce  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=120
+5e2165b  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+4bf3e35  2026-09-13  1474846859  untracked files on cline checkpoint
+e806f75  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=119
+73881e1  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+f32543b  2026-09-13  1474846859  untracked files on cline checkpoint
+2653a02  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=118
+78c9f94  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+d303767  2026-09-13  1474846859  untracked files on cline checkpoint
+d379570  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=117
+a547af7  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+bd35965  2026-09-13  1474846859  untracked files on cline checkpoint
+b1a624c  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=116
+775c69f  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+b3aef80  2026-09-13  1474846859  untracked files on cline checkpoint
+e9759f5  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=115
+c47a8a3  2026-09-13  1474846859  untracked files on cline checkpoint
+c1be430  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+83de886  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=114
+4f81912  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+24cbe2f  2026-09-13  1474846859  untracked files on cline checkpoint
+656f7a9  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=113
+9485a5b  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+6ddee8f  2026-09-13  1474846859  untracked files on cline checkpoint
+cc5221d  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=112
+d5b3aed  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+2213a5a  2026-09-13  1474846859  untracked files on cline checkpoint
+a842653  2026-09-13  1474846859  cline checkpoint session=1789131352945 run=111
+62c04ec  2026-09-13  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+b294fae  2026-09-13  1474846859  untracked files on cline checkpoint
+de0321d  2026-09-11  1474846859  cline checkpoint session=1789131352945 run=110
+8d3b027  2026-09-11  1474846859  untracked files on cline checkpoint
+e3bfaf4  2026-09-11  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+f76ab01  2026-09-11  1474846859  cline checkpoint session=1789131352945 run=109
+8ebb07d  2026-09-11  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+8a752ec  2026-09-11  1474846859  untracked files on cline checkpoint
+9501218  2026-09-11  1474846859  cline checkpoint session=1789131352945 run=108
+1fbb5ac  2026-09-11  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+5df7447  2026-09-11  1474846859  untracked files on cline checkpoint
+b88373f  2026-09-11  1474846859  cline checkpoint session=1789131352945 run=107
+abf5302  2026-09-11  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+2e1be45  2026-09-11  1474846859  untracked files on cline checkpoint
+87e6b84  2026-09-11  1474846859  cline checkpoint session=1789131352945 run=106
+d2a2b19  2026-09-11  1474846859  untracked files on cline checkpoint
+a155afb  2026-09-11  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+6a7b4b4  2026-09-11  1474846859  cline checkpoint session=1789131352945 run=105
+0a0390d  2026-09-11  1474846859  untracked files on cline checkpoint
+7b84a87  2026-09-11  1474846859  index on main: d9cf8bc feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+d9cf8bc  2026-08-09  1474846859  feat: 更新 IDM 批量下载说明为 txt 文件导入方式
+3f3197a  2026-08-09  1474846859  feat: IDM 批量下载链接生成器 + 清理临时文件
+3ca2a7b  2026-08-09  1474846859  feat: yande.re 面板新增 IDM 批量下载链接生成器（可编辑输出窗口 + 生成/复制/清空）
+a391b19  2026-07-30  1474846859  refactor: yande.re 从 HTML 爬取迁移到官方 JSON API (post.json) + 修复 clear-download-cache
+6b07528  2026-07-30  1474846859  fix: 用 node-html-parser 替换 cheerio (cheerio v2 依赖 node:sqlite 导致 Electron 27 崩溃)
+b141cc6  2026-07-30  1474846859  feat: 新增 yande.re 图片来源 + 毛玻璃UI + 日历组件 + 筛选功能
+98c3203  2026-07-30  1474846859  snapshot: 备份当前代码状态
+e98ec7b  2026-07-15  1474846859  彻底移除大文件
+1630aa6  2026-07-15  1474846859  首次提交
