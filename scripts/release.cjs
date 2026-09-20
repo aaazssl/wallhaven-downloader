@@ -38,4 +38,11 @@ const cmd = 'npx electron-builder --win --x64 --publish always'
 console.log('▶ 执行:', cmd, '\n')
 const result = spawnSync(cmd, { stdio: 'inherit', cwd: root, env: process.env, shell: true })
 
-process.exit(result.status === null ? 1 : result.status)
+if (result.status !== 0) {
+  console.error(`\n❌ electron-builder 退出码 ${result.status}，已跳过 zip 免安装包`)
+  process.exit(result.status === null ? 1 : result.status)
+}
+
+// zip 免安装包由 electron-builder 的 afterAllArtifactBuild 钩子（scripts/after-build.cjs）
+// 在发布流程内自动生成并上传，这里无需额外处理。
+console.log('\n🎉 发布完成：安装版 + 更新清单(latest.yml) + zip 免安装包 均已提交上传')

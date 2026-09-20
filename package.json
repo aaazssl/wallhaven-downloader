@@ -9,7 +9,8 @@
     "preview": "electron-vite preview",
     "start": "electron-vite preview",
     "dist": "electron-builder --win --x64",
-    "release": "node scripts/release.cjs"
+    "release": "node scripts/release.cjs",
+    "portable": "node scripts/portable-zip.cjs"
   },
   "author": "",
   "license": "MIT",
@@ -55,6 +56,7 @@
         "repo": "wallhaven-downloader",
         "releaseType": "release"
       }
-    ]
+    ],
+    "afterAllArtifactBuild": "scripts/after-build.cjs"
   }
 }
