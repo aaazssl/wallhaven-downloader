@@ -38,5 +38,19 @@ contextBridge.exposeInMainWorld('electronAPI', {
   },
   removePixivLinksProgressListener: () => {
     ipcRenderer.removeAllListeners('pixiv-links-progress')
+  },
+  // ===== 自动更新 =====
+  getAppVersion: () => ipcRenderer.invoke('get-app-version'),
+  getUpdateStatus: () => ipcRenderer.invoke('get-update-status'),
+  checkForUpdate: () => ipcRenderer.invoke('check-update'),
+  downloadUpdate: () => ipcRenderer.invoke('download-update'),
+  installUpdate: () => ipcRenderer.invoke('install-update'),
+  // 监听更新状态；返回「取消监听」函数。
+  // ⚠️ 这里不用 removeAllListeners：同一频道可能被 App 和设置页同时监听，
+  //    整体清空会误伤另一个监听者。
+  onUpdateStatus: (callback) => {
+    const handler = (event, data) => callback(data)
+    ipcRenderer.on('update-status', handler)
+    return () => ipcRenderer.removeListener('update-status', handler)
   }
 })

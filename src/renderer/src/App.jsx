@@ -216,6 +216,25 @@ function App() {
     return () => window.electronAPI.removeDownloadProgressListener()
   }, [])
 
+  // ===== 自动更新提示 =====
+  // 启动 8 秒后主进程会静默检查一次；发现新版 / 下载完成时在这里用 Toast 提醒，
+  // 具体操作在「设置 → 系统设置 → 软件更新」里完成
+  useEffect(() => {
+    const api = window.electronAPI
+    if (!api || !api.onUpdateStatus) return
+    const off = api.onUpdateStatus((data) => {
+      if (!data) return
+      if (data.state === 'available') {
+        toast(`发现新版本 v${data.version}，可在「设置 → 系统设置」里更新`)
+      } else if (data.state === 'downloaded') {
+        toast(`新版本 v${data.version} 已下载完成，去「设置」里点「重启并安装」`)
+      }
+    })
+    return () => {
+      if (typeof off === 'function') off()
+    }
+  }, [])
+
   useEffect(() => {
     if (apiKey !== undefined && concurrency && downloadDir) {
       window.electronAPI.saveConfig({ 

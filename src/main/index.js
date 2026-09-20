@@ -10,6 +10,7 @@ import { createProxyAgent } from './proxyHelper'
 import { pixivGet, getRanking, getIllustPages, getIllustDetail, getDiscovery, getFollowLatest, setFollowUser, collectIllustUrls } from './pixivApi'
 import { clearAllCaches } from './cache'
 import { loadHistory, saveHistory, loadConfig, saveConfig, flushHistory } from './store'
+import { setupUpdater } from './updater'
 
 // ===== GPU 硬件加速开关 =====
 // 说明：Electron 默认使用 GPU 渲染，但在部分机器/驱动（尤其老旧显卡、虚拟机）上
@@ -65,6 +66,8 @@ app.whenReady().then(() => {
   global.config = loadConfig()
   setupPixivImageNetworking()
   createWindow()
+  // 自动更新：检查 GitHub Release 里的 latest.yml（打包环境下启动 8 秒后静默检查一次）
+  setupUpdater(() => mainWindow)
 })
 
 app.on('window-all-closed', () => {
@@ -122,8 +125,9 @@ async function request(url, options = {}) {
 // ==================== pixiv 图片直连优化 ====================
 // 让 <img src="https://i.pximg.net/..."> 直接走 Chromium 的网络栈（与浏览器一致的
 // HTTP/2 多路复用 + 磁盘缓存 + 高并发），而不是绕到主进程做代理：
-//   1) PAC 按域名分流代理：只有 pixiv / pximg 走本地代理，其它站直连
+//   1) 整个会话启用代理（wallhaven / yande.re / pixiv 三站统一）
 //   2) 给 pximg 请求注入 Referer（+ 登录 Cookie），绕过防盗链
+//   3) 给 electron-updater 的独立 session 同步代理（自动更新要能连上 GitHub）
 // ⚠️ 命名说明：函数名沿用历史（最初只服务 pixiv），但它现在做的是
 // "整个会话（wallhaven / yande.re / pixiv 三个图源）的代理设置" + "pximg 防盗链 Referer 注入"。
 function setupPixivImageNetworking() {
@@ -136,11 +140,26 @@ function setupPixivImageNetworking() {
     // 1) 代理设置：三个图源（wallhaven / yande.re / pixiv）都需要走本地代理，
     //    因此对整个会话启用代理（本地地址 Chromium 默认会绕过，不影响 dev 服务器）。
     //    ⚠️ 之前用 PAC 按域名分流只让 pixiv 走代理，导致 wallhaven / yande.re 图片直连超时，已废弃
+    const proxyRules = `http=127.0.0.1:${proxyPort};https=127.0.0.1:${proxyPort}`
     if (useProxy) {
-      const proxyRules = `http=127.0.0.1:${proxyPort};https=127.0.0.1:${proxyPort}`
       ses.setProxy({ proxyRules }).catch((e) => console.warn('设置会话代理失败:', e.message))
     } else {
       ses.setProxy({ mode: 'direct' }).catch(() => {})
+    }
+
+    // 3) 自动更新用的独立 session：
+    //    electron-updater 内部固定用 session.fromPartition('electron-updater', { cache: false })
+    //    发起请求（见 node_modules/electron-updater/out/electronHttpExecutor.js），
+    //    它【不会】继承上面 defaultSession 的代理 —— 不同步设置的话，
+    //    国内用户点「检查更新」会直连 GitHub 而超时/失败。
+    //    ⚠️ 分区名与 cache 参数必须与 electron-updater 内部完全一致，否则拿到的是另一个 session
+    try {
+      const updaterSession = session.fromPartition('electron-updater', { cache: false })
+      updaterSession
+        .setProxy(useProxy ? { proxyRules } : { mode: 'direct' })
+        .catch((e) => console.warn('设置更新会话代理失败:', e.message))
+    } catch (e) {
+      console.warn('设置更新会话代理异常:', e.message)
     }
 
     // 2) 注入 Referer / Cookie（i.pximg.net 防盗链校验）

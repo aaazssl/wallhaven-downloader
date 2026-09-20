@@ -1,5 +1,5 @@
 // src/renderer/src/components/SettingsPanel.jsx
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { PIXIV_TABS } from './TypeTabs'
 
 export default function SettingsPanel({ 
@@ -37,6 +37,94 @@ export default function SettingsPanel({
   const fileInputRef = useRef(null)
   // 当前设置分区：system / wallhaven / yandere / pixiv
   const [activeTab, setActiveTab] = useState('system')
+
+  // Esc 关闭设置页（与 ImagePreview / PixivIllustDetail 的键盘操作保持一致）
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  // ===== 软件更新 =====
+  const [appVersion, setAppVersion] = useState('')
+  const [update, setUpdate] = useState({ state: 'idle' })
+  const [updateBusy, setUpdateBusy] = useState(false)
+
+  useEffect(() => {
+    const api = window.electronAPI
+    if (!api) return
+
+    // 当前版本 + 最近一次状态（可能错过了启动时的静默检查结果）
+    if (api.getAppVersion) api.getAppVersion().then((v) => setAppVersion(v || ''))
+    if (api.getUpdateStatus) {
+      api.getUpdateStatus().then((s) => {
+        if (s && s.state && s.state !== 'idle') setUpdate(s)
+      })
+    }
+
+    // 订阅后续状态变化（返回的是取消监听函数）
+    let off = null
+    if (api.onUpdateStatus) {
+      off = api.onUpdateStatus((data) => {
+        if (!data) return
+        setUpdate(data)
+        if (data.state !== 'downloading') setUpdateBusy(false)
+      })
+    }
+    return () => {
+      if (typeof off === 'function') off()
+    }
+  }, [])
+
+  const handleCheckUpdate = async () => {
+    if (updateBusy) return
+    setUpdateBusy(true)
+    setUpdate({ state: 'checking' })
+    const res = await window.electronAPI.checkForUpdate()
+    setUpdateBusy(false)
+    if (!res || !res.success) {
+      setUpdate({
+        state: res && res.state === 'dev' ? 'dev' : 'error',
+        message: (res && res.message) || '检查更新失败',
+        currentVersion: res && res.currentVersion
+      })
+    }
+  }
+
+  const handleDownloadUpdate = async () => {
+    const res = await window.electronAPI.downloadUpdate()
+    if (!res || !res.success) {
+      setUpdate({ state: 'error', message: (res && res.message) || '下载失败' })
+    }
+  }
+
+  const handleInstallUpdate = async () => {
+    await window.electronAPI.installUpdate()
+  }
+
+  // 状态 → 提示文案
+  const updateHint = (() => {
+    switch (update.state) {
+      case 'checking':
+        return '正在检查更新…'
+      case 'available':
+        return `发现新版本 v${update.version}，点「下载」开始（增量下载，通常只需几 MB）`
+      case 'not-available':
+        return '当前已是最新版本 ✅'
+      case 'downloading':
+        return `正在下载… ${update.percent || 0}%`
+      case 'downloaded':
+        return `v${update.version} 已下载完成，点「重启并安装」即可（软件会自动关闭并重新打开）`
+      case 'dev':
+        return '开发模式（未打包运行）下不检查更新，打包安装后才可用'
+      case 'error':
+        return `检查失败：${update.message || '未知错误'}（可稍后重试，或检查代理是否正常）`
+      default:
+        return '有新版时会自动提示，也可以手动点「检查更新」'
+    }
+  })()
 
   const handleBgColorChange = (e) => {
     const color = e.target.value
@@ -114,6 +202,69 @@ export default function SettingsPanel({
         {/* ===== 系统基本设置 ===== */}
         {activeTab === 'system' && (
           <>
+            {/* ===== 软件更新 ===== */}
+            <div className="setting-item">
+              <label>软件更新</label>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '13px', color: '#aaa' }}>
+                  当前版本 v{appVersion || '…'}
+                </span>
+                <button
+                  className="button button-secondary"
+                  onClick={handleCheckUpdate}
+                  disabled={updateBusy}
+                >
+                  {update.state === 'checking' ? '检查中…' : '🔄 检查更新'}
+                </button>
+                {update.state === 'available' && (
+                  <button className="button" onClick={handleDownloadUpdate}>
+                    ⬇ 下载 v{update.version}
+                  </button>
+                )}
+                {update.state === 'downloaded' && (
+                  <button className="button danger-btn" onClick={handleInstallUpdate}>
+                    🚀 重启并安装
+                  </button>
+                )}
+              </div>
+              {/* 下载进度条 */}
+              {update.state === 'downloading' && (
+                <div
+                  style={{
+                    marginTop: '10px',
+                    height: '6px',
+                    borderRadius: '3px',
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    overflow: 'hidden'
+                  }}
+                >
+                  <div
+                    style={{
+                      width: `${update.percent || 0}%`,
+                      height: '100%',
+                      background: '#4c9aff',
+                      transition: 'width 0.25s ease'
+                    }}
+                  />
+                </div>
+              )}
+              <div
+                style={{
+                  fontSize: '11px',
+                  marginTop: '8px',
+                  lineHeight: '1.6',
+                  color:
+                    update.state === 'error'
+                      ? '#ff6b6b'
+                      : update.state === 'available' || update.state === 'downloaded'
+                        ? '#4c9aff'
+                        : '#888'
+                }}
+              >
+                {updateHint}
+              </div>
+            </div>
+
             <div className="setting-item">
               <label>全局 VPN 代理</label>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>

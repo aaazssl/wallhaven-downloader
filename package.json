@@ -1,6 +1,6 @@
 {
   "name": "wallhaven-downloader",
-  "version": "1.0.0",
+  "version": "1.3.1",
   "description": "Wallhaven批量壁纸下载器",
   "main": "dist/main/index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "build": "electron-vite build",
     "preview": "electron-vite preview",
     "start": "electron-vite preview",
-    "dist": "electron-builder --win --x64"
+    "dist": "electron-builder --win --x64",
+    "release": "electron-builder --win --x64 --publish always"
   },
   "author": "",
   "license": "MIT",
@@ -35,7 +36,8 @@
     },
     "win": {
       "target": "nsis",
-      "icon": "resources/icon.ico"
+      "icon": "resources/icon.ico",
+      "artifactName": "Wallhaven-Downloader-Setup-${version}.${ext}"
     },
     "nsis": {
       "oneClick": false,
@@ -45,6 +47,13 @@
     "files": [
       "dist/**/*",
       "node_modules/**/*"
+    ],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "aaazssl",
+        "repo": "wallhaven-downloader"
+      }
     ]
   }
 }

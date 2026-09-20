@@ -572,8 +572,13 @@ body {
   background: rgba(45, 45, 45, 0.8);
   border-bottom: 1px solid rgba(61, 61, 61, 0.3);
 }
+/* 设置内容区：占满 header 之外的剩余高度，内容超高时在内部滚动
+   （此前只有 padding，没有滚动 → 窗口非全屏时底部设置被裁掉且滚不到） */
 .settings-content {
-  padding: 20px;
+  flex: 1;                /* 占满剩余高度 */
+  min-height: 0;          /* 关键：flex item 默认 min-height:auto 会被内容撑开，导致滚动失效 */
+  overflow-y: auto;       /* 内容超出时出现滚动条（全局 ::-webkit-scrollbar 已定义样式） */
+  padding: 0 20px 40px;   /* 顶部留 0，让标签栏能贴顶；底部留白避免最后一项贴边 */
   max-width: 500px;
 }
 .setting-item {
@@ -924,8 +929,16 @@ body {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 18px;
-  padding-bottom: 12px;
+  /* 吸顶：滚动设置内容时标签栏常驻顶部，随时能切换分区 */
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  /* 负边距抵消 .settings-content 的左右 padding，让背景完整遮挡滚过的内容 */
+  margin: 0 -20px 18px;
+  padding: 16px 20px 12px;
+  background: rgba(26, 26, 26, 0.98);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -950,6 +963,21 @@ body {
   border-color: #4c9aff;
   color: #fff;
   transform: translateY(-1px);
+}
+
+/* 窗口很矮时进一步压缩间距，让设置内容多露出一些
+   （配合内容区滚动，小窗口/非全屏下也能操作到底部设置） */
+@media (max-height: 620px) {
+  .settings-header {
+    padding: 10px 16px;
+  }
+  .settings-tabs {
+    margin: 0 -16px 12px;
+    padding: 10px 16px 8px;
+  }
+  .settings-content {
+    padding: 0 16px 32px;
+  }
 }
 
 /* ===== pixiv 多页角标（新增） ===== */

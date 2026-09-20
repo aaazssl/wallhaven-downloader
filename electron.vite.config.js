@@ -28,7 +28,12 @@ export default defineConfig({
     build: {
       outDir: 'dist/main',
       rollupOptions: {
-        external: ['electron']
+        // ⚠️ electron-updater 必须保持外部依赖（运行时从 node_modules 加载）：
+        // 若被打包进 bundle，它内部的 require('electron') 会被 vite 的 SSR 转换改写，
+        // 导致 ElectronAppAdapter 取不到 app 对象，启动时直接崩溃：
+        //   TypeError: Cannot read properties of undefined (reading 'getVersion')
+        // 打包时 node_modules 已包含在 files 里（见 package.json），无需额外处理。
+        external: ['electron', 'electron-updater']
       }
     }
   },
