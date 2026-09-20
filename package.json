@@ -9,7 +9,7 @@
     "preview": "electron-vite preview",
     "start": "electron-vite preview",
     "dist": "electron-builder --win --x64",
-    "release": "electron-builder --win --x64 --publish always"
+    "release": "node scripts/release.cjs"
   },
   "author": "",
   "license": "MIT",
@@ -52,7 +52,8 @@
       {
         "provider": "github",
         "owner": "aaazssl",
-        "repo": "wallhaven-downloader"
+        "repo": "wallhaven-downloader",
+        "releaseType": "release"
       }
     ]
   }
